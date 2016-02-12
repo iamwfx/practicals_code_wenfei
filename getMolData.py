@@ -14,7 +14,7 @@ def main():
 	start_time = time.clock()
 
 	# Read in train and test as Pandas DataFrames
-	df_train_all = pd.read_csv('test.csv',usecols=["smiles"])
+	df_train_all = pd.read_csv('train.csv',usecols=["smiles"])
 	# df_test_all = pd.read_csv('test.csv',usecols=["smiles"])
 
 	# df_all = pd.concat([df_train_all,df_test_all])
@@ -26,7 +26,7 @@ def main():
 	# numRowsTot = len(df_all)
 
 	### Don't use ####
-	with open("test_rdkit.csv",'wb') as w:
+	with open("train_rdkit_new.csv",'wb') as w:
 		writer = csv.writer(w)
 		writer.writerow(list(['smiles'])+list(functions))
 		for i, row in df_train_all.iterrows():
