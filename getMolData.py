@@ -20,12 +20,6 @@ def main():
 	# df_all = pd.concat([df_train_all,df_test_all])
 	functions = [i for i in dir(Descriptors) if not (i.startswith("__") or i.startswith("_") or i.startswith("fr_"))] 
 
-	print df_train_all.head()
-	# numRowsTrain = len(df_train_all)
-	# numRowsTest = len(df_test_all)
-	# numRowsTot = len(df_all)
-
-	### Don't use ####
 	with open("train_rdkit_new.csv",'wb') as w:
 		writer = csv.writer(w)
 		writer.writerow(list(['smiles'])+list(functions))
@@ -44,9 +38,7 @@ def main():
 					except ValueError: 
 						print "ValueError"
 			writer.writerow(holder)
-				# item = getattr(Descriptors,each)
-				# item(mol)
-
+			
 	print "Runtime is ", time.clock() - start_time, "seconds"
 
 
